@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+
+import { BrowserRouter as Router,Route, NavLink, Switch } from 'react-router-dom';
 import './App.css';
+import About from './Components/About';
+import AddRestaurent from './Components/AddRestaurent';
+import Home from './Components/Home';
+import Login from './Components/Login';
+import Navigator from './Components/Navigator';
+import RestaurentDetails from './Components/RestaurentDetails';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ return(
+    <Router>
+
+ <div>
+      <h1>Zonions</h1>
+
+        <Navigator/>
+
+            <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/login"  component={Login} />
+            <Route path="/about" component={About} />
+            <Route path="/addRestaurent" component={AddRestaurent}/>
+            <Route path="/details/:id" component={RestaurentDetails}/>
+           
+            </Switch>
+        
+
+    
+ </div>
+ </Router>
+ )
 }
 
 export default App;
